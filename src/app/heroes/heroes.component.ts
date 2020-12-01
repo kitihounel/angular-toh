@@ -20,6 +20,8 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
+    // 'heroes' propoerty is probably undefined when the component is rendered the first time.
+    // But it does crash the app, since a for-loop on 'undefined' does nothing.
     this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 
